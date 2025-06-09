@@ -1,10 +1,17 @@
 const fs = require('fs');
 const path = require('path');
 
+console.log('Starting build process...');
+console.log('Current directory:', process.cwd());
+
 // Create public directory if it doesn't exist
-const publicDir = path.join(__dirname, 'public');
+const publicDir = path.join(process.cwd(), 'public');
+console.log('Creating public directory at:', publicDir);
 if (!fs.existsSync(publicDir)) {
     fs.mkdirSync(publicDir, { recursive: true });
+    console.log('Public directory created');
+} else {
+    console.log('Public directory already exists');
 }
 
 // Function to copy files recursively

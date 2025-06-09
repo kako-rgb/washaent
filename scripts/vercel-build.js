@@ -1,10 +1,18 @@
 const fs = require('fs');
 const path = require('path');
 
+// Get root directory
+const rootDir = process.cwd();
+console.log('Current working directory:', rootDir);
+console.log('Directory contents:', fs.readdirSync(rootDir));
+
 // Function to ensure directory exists
 function ensureDirectoryExists(dir) {
     if (!fs.existsSync(dir)) {
+        console.log('Creating directory:', dir);
         fs.mkdirSync(dir, { recursive: true });
+    } else {
+        console.log('Directory already exists:', dir);
     }
 }
 
